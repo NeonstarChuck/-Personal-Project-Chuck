@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 9588aff3a737944aba5f745baf7f4b93
+timeCreated: 1547159159
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 207048
+  packageName: POLYGON - Sampler Pack
+  packageVersion: 1.1.0
+  assetPath: Assets/SyntyStudios/PolygonPrototype/Prefabs/Icons/SM_Icon_Balloon_01.prefab
+  uploadId: 645704
