@@ -1,34 +1,38 @@
 using UnityEngine;
+using System.Collections;
 
 public class SpawnManagerAnimals : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     public GameObject[] animalPrefabs;
-    public Transform[] spawnPoints;
 
-    public float startDelay = 2f;
-    public float spawnInterval = 3f;
-
-    void Start()
+    public void SpawnAnimals(int count, Transform[] spawnPoints, float spawnDelay = 5f)
     {
-         InvokeRepeating(nameof(SpawnAnimal), startDelay, spawnInterval);
+        StartCoroutine(SpawnAnimalsCoroutine(count, spawnPoints, spawnDelay));
     }
 
-    // Update is called once per frame
-    void Update()
+    private IEnumerator SpawnAnimalsCoroutine(int count, Transform[] spawnPoints, float spawnDelay)
     {
-        
-    }
+        for (int i = 0; i < count; i++)
+        {
+            int animalIndex = Random.Range(0, animalPrefabs.Length);
+            int spawnIndex = Random.Range(0, spawnPoints.Length);
 
-     void SpawnAnimal()
-    {
-        int animalIndex = Random.Range(0, animalPrefabs.Length);
-        int spawnIndex = Random.Range(0, spawnPoints.Length);
+            GameObject spawned = Instantiate(
+                animalPrefabs[animalIndex],
+                spawnPoints[spawnIndex].position,
+                spawnPoints[spawnIndex].rotation
+            );
 
-        Instantiate(
-            animalPrefabs[animalIndex],
-            spawnPoints[spawnIndex].position,
-            spawnPoints[spawnIndex].rotation
-        );
+            // Assign GameManager dynamically
+            AnimalHealth health = spawned.GetComponent<AnimalHealth>();
+            if (health != null)
+            {
+                health.gameManager = GameObject.FindAnyObjectByType<GameManager>();
+            }
+
+            yield return new WaitForSecondsRealtime(spawnDelay);
+
+        }
     }
 }
+
