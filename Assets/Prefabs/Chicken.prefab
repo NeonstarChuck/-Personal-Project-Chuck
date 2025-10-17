@@ -801,7 +801,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e72a89f1ffd6f0f46b51fab3363b3d84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 20
+  maxHealth: 20
+  damageParticle: {fileID: 2142078834280022329, guid: 3628e6a2d29814b27bc8d485dcad2ff6, type: 3}
+  gameManager: {fileID: 0}
 --- !u!1 &3475746859497438389
 GameObject:
   m_ObjectHideFlags: 0

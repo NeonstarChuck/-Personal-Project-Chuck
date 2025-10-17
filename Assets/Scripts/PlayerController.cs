@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
     public float xRange = 15.0f;
     public float zMin;
     public float zMax;
+    public float rotationSpeed;
+
     public Transform projectileSpawnPoint;
 
 
@@ -21,6 +23,15 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        // Movement direction
+        Vector3 moveDirection = new Vector3(horizontalInput, 0f, verticalInput).normalized;
+        if (moveDirection != Vector3.zero)
+        {
+            Quaternion toRotation = Quaternion.LookRotation(moveDirection, Vector3.up);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
+        }
+
         if (transform.position.x < -xRange)
         {
             transform.position = new Vector3(-xRange, transform.position.y, transform.position.z);

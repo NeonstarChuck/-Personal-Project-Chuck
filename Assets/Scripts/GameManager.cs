@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI rescuedText;
     public TextMeshProUGUI deadText;
     public GameObject gameOverPanel;
+    public GameObject gameOverWinPanel;
     public GameObject titleSreen;
     public Button restartButton;
 
@@ -61,7 +62,7 @@ public class GameManager : MonoBehaviour
 
         rescuedCount++;
         UpdateUI();
-        CheckGameOver();
+        CheckGameOverWin();
     }
 
     public void AnimalDead()
@@ -81,14 +82,26 @@ public class GameManager : MonoBehaviour
 
     private void CheckGameOver()
     {
-        if (rescuedCount >= totalToRescue)
-        {
-            GameOver("All animals rescued! You win!");
-        }
-        else if (deadCount >= maxDeaths)
+        if (deadCount >= maxDeaths)
         {
             GameOver("Too many animals died! Game Over!");
         }
+    }
+
+    private void CheckGameOverWin()
+    {
+        if (rescuedCount >= totalToRescue)
+        {
+            GameOverWin("All animals rescued! You win!");
+        }
+    }
+
+    private void GameOverWin(string message)
+    {
+        gameActive = false;
+        gameOverWinPanel.SetActive(true);
+        Debug.Log(message);
+        Time.timeScale = 0f; // freeze the game
     }
 
     private void GameOver(string message)

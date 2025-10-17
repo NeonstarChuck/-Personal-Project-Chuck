@@ -4,6 +4,12 @@ using System.Linq; // for easy nearest-target lookup
 
 public class NavigationScript : MonoBehaviour
 {
+
+    private Animator animator;
+    private AudioSource enemyAudio;
+    public AudioClip slimeSound;
+    public ParticleSystem damageParticle;
+
     [Header("Targets")]
     public Transform player;
     public string animalTag = "Animal";
@@ -23,6 +29,8 @@ public class NavigationScript : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         currentTarget = player; // fallback target
+        animator = GetComponent<Animator>();
+        enemyAudio = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -68,7 +76,13 @@ public class NavigationScript : MonoBehaviour
                 AnimalHealth animal = collision.gameObject.GetComponent<AnimalHealth>();
                 if (animal != null)
                 {
+                    if (damageParticle != null)
+                        damageParticle.Play();
+                         
+                    enemyAudio.PlayOneShot(slimeSound, 1);
+                    animator.SetTrigger("Attack");
                     animal.TakeDamage(damage);
+                    
                 }
 
                 lastAttackTime = Time.time;

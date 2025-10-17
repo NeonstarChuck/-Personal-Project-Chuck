@@ -3,9 +3,10 @@ using UnityEngine;
 public class AnimalHealth : MonoBehaviour
 {
     public float maxHealth = 20f;
+    public ParticleSystem damageParticle;
     private float currentHealth;
 
-     [HideInInspector]
+    [HideInInspector]
     public GameManager gameManager;
 
     void Start()
@@ -33,6 +34,8 @@ public class AnimalHealth : MonoBehaviour
 
         // Destroy animal
         Destroy(gameObject);
+        if (damageParticle != null)
+            damageParticle.Play();
     }
 }
 
