@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
 
         // Spawn all animals at the start
-        spawnManager.SpawnAnimals(totalToRescue, spawnPoints);
+        spawnManager.SpawnAnimals(spawnPoints, 5f);
     }
 
     private void RestartGame(){
