@@ -12,12 +12,12 @@ public class AnimalMovement : MonoBehaviour
     {
         timer += Time.deltaTime;
 
-
+        //move animal forward
         transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
-
+        //rotate animal 
         transform.Rotate(Vector3.up * turnSpeed * Time.deltaTime);
 
-       
+        //change direction depending on timer.
         if (timer >= changeDirectionTime)
         {
             turnSpeed = Random.Range(-80f, 80f);

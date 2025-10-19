@@ -4,6 +4,7 @@ public class PauseManager : MonoBehaviour
 {
     private bool isPaused = false;
     public GameObject pausePanel;
+    public AudioSource audioSource;
     
 
     void Update()
@@ -25,7 +26,8 @@ public class PauseManager : MonoBehaviour
             
             Debug.Log("Game Paused");
             pausePanel.SetActive(true);
-           
+            if (audioSource != null)
+                audioSource.Pause();
            
 
             
@@ -36,7 +38,8 @@ public class PauseManager : MonoBehaviour
             Time.timeScale = 1f;   // Resume game
             Debug.Log("Game Resumed");
             pausePanel.SetActive(false);
-            
+            if (audioSource != null)
+                audioSource.UnPause(); 
         }
     }
 }

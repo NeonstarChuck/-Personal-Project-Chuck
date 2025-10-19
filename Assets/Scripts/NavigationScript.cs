@@ -81,6 +81,7 @@ public class NavigationScript : MonoBehaviour
                          
                     enemyAudio.PlayOneShot(slimeSound, 1);
                     animator.SetTrigger("Attack");
+                    animator.SetTrigger("Attack2");
                     animal.TakeDamage(damage);
                     
                 }

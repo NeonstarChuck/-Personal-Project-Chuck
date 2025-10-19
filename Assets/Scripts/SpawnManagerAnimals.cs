@@ -5,7 +5,7 @@ public class SpawnManagerAnimals : MonoBehaviour
 {
     public GameObject[] animalPrefabs;
 
-    public void SpawnAnimals(Transform[] spawnPoints, float spawnDelay = 5f)
+    public void SpawnAnimals(Transform[] spawnPoints, float spawnDelay = 1f)
     {
         int totalAnimals = 20; // spawn exactly 20 animals
         StartCoroutine(SpawnAnimalsCoroutine(totalAnimals, spawnPoints, spawnDelay));

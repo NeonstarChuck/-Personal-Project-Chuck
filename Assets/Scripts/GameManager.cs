@@ -15,7 +15,13 @@ public class GameManager : MonoBehaviour
     public GameObject gameOverPanel;
     public GameObject gameOverWinPanel;
     public GameObject titleSreen;
+    public GameObject InformationPanel;
+    public GameObject Timer;
     public Button restartButton;
+    public GameObject enemyHard;
+    public GameObject Fence;
+
+    public Timer timer;
 
     private int totalToRescue;
     private int maxDeaths = 3;
@@ -26,9 +32,9 @@ public class GameManager : MonoBehaviour
     private bool gameActive = false;
 
     // --- Call these from your menu buttons ---
-    public void StartEasy()   { StartGame(5); }
-    public void StartMedium() { StartGame(10); }
-    public void StartHard()   { StartGame(15); }
+    public void StartEasy()   { StartGame(5, 30f, false); }
+    public void StartMedium() { StartGame(10, 60f, false); }
+    public void StartHard()   { StartGame(15, 80f, true); }
 
     private void Start()
 {
@@ -36,7 +42,7 @@ public class GameManager : MonoBehaviour
     Time.timeScale = 0f;
 }
 
-    private void StartGame(int totalAnimals)
+    private void StartGame(int totalAnimals, float timeLimit, bool enableHardEnemy)
     {
         totalToRescue = totalAnimals;
         rescuedCount = 0;
@@ -46,14 +52,31 @@ public class GameManager : MonoBehaviour
         UpdateUI();
 
         titleSreen.gameObject.SetActive(false);
+        InformationPanel.gameObject.SetActive(false);
+        deadText.gameObject.SetActive(true);
+        rescuedText.gameObject.SetActive(true);
+        Timer.gameObject.SetActive(true);
         Time.timeScale = 1f;
 
-        // Spawn all animals at the start
+        
         spawnManager.SpawnAnimals(spawnPoints, 5f);
+        timer.gameManager = this;
+        timer.StartTimer(timeLimit);
+
+        if (enableHardEnemy && enemyHard != null)
+        {
+            enemyHard.SetActive(true);
+            Fence.SetActive(false);
+        }
     }
 
     private void RestartGame(){
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+      public void TimeIsOver()
+    {
+        GameOver("Time is up!");
     }
 
     public void AnimalRescued()
