@@ -13,7 +13,7 @@ public class Timer : MonoBehaviour
 
     void Start()
     {
-      
+
     }
 
     // Update is called once per frame
@@ -26,10 +26,10 @@ public class Timer : MonoBehaviour
             remainingTime -= Time.deltaTime;
 
             if (remainingTime <= 10f && timerText != null)
-            timerText.color = Color.red;
-            
+                timerText.color = Color.red;
+
             if (remainingTime < 0) remainingTime = 0;
-            
+
         }
         else
         {
@@ -43,7 +43,7 @@ public class Timer : MonoBehaviour
         timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 
-     public void StartTimer(float seconds)
+    public void StartTimer(float seconds)
     {
         remainingTime = seconds;
         timerActive = true;

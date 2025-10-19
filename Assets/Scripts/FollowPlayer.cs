@@ -6,9 +6,9 @@ public class FollowPlayer : MonoBehaviour
     private Vector3 offset;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
-    {   
+    {
         //Because player its not at 0,0,0, we have to calculate the offset instead.
-         offset = transform.position - player.transform.position;
+        offset = transform.position - player.transform.position;
     }
 
     // Update is called once per frame
@@ -16,7 +16,7 @@ public class FollowPlayer : MonoBehaviour
     {
         //Offset the camera behind the player by adding to the player's position
         transform.position = player.transform.position + offset;
-    
-        
+
+
     }
 }

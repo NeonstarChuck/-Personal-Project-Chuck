@@ -22,31 +22,31 @@ public class PullProjectile : MonoBehaviour
         //forward object
     }
 
-     private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Animal"))
         {
-            
+
             Vector3 holdPosition = player.position + player.transform.TransformDirection(holdOffset);
             other.transform.position = holdPosition;
             //if hit animal tag object, then offset snap to the player
-            
+
             other.transform.SetParent(player);
             //animal child of player (just like hoodcamera child )
-            
+
             if (other.TryGetComponent<Rigidbody>(out Rigidbody rb))
             {
-                rb.linearVelocity = Vector3.zero;     
-                rb.angularVelocity = Vector3.zero;    
+                rb.linearVelocity = Vector3.zero;
+                rb.angularVelocity = Vector3.zero;
                 rb.isKinematic = true;
                 //stop it from moving.
             }
 
-           
+
             if (other.TryGetComponent<AnimalMovement>(out AnimalMovement moveScript))
                 moveScript.enabled = false;
 
-                //check the animamlmovemnt script and disables.
+            //check the animamlmovemnt script and disables.
             Destroy(gameObject);
         }
     }

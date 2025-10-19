@@ -49,7 +49,7 @@ public class SpawnManager : MonoBehaviour
         Vector3 rotation = new Vector3(0, -90, 0);
         Instantiate(animalPrefabs[animalIndex], spawnPosZ, Quaternion.Euler(rotation));
     }
-    
+
 
 }
 

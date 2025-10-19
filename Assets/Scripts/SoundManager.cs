@@ -8,27 +8,32 @@ public class SoundManager : MonoBehaviour
     [SerializeField] Slider volumeSlider;
     void Start()
     {
-        if(!PlayerPrefs.HasKey("musicVolume")){
+        if (!PlayerPrefs.HasKey("musicVolume"))
+        {
             PlayerPrefs.SetFloat("musicVolume", 1);
             Load();
         }
-        else{
+        else
+        {
             Load();
         }
-        
+
     }
 
     // Update is called once per frame
-    public void ChangeVolume(){
+    public void ChangeVolume()
+    {
         AudioListener.volume = volumeSlider.value;
         Save();
     }
 
-    private void Load(){
+    private void Load()
+    {
         volumeSlider.value = PlayerPrefs.GetFloat("musicVolume");
     }
 
-    private void Save(){
+    private void Save()
+    {
         PlayerPrefs.SetFloat("musicVolume", volumeSlider.value);
     }
 }

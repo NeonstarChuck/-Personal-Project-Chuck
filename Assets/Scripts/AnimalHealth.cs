@@ -13,7 +13,7 @@ public class AnimalHealth : MonoBehaviour
     {
         currentHealth = maxHealth;
     }
-
+    //When the health is 0/ call the die function
     public void TakeDamage(float damage)
     {
         currentHealth -= damage;

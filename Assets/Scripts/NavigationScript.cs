@@ -79,12 +79,12 @@ public class NavigationScript : MonoBehaviour
                 {
                     if (damageParticle != null)
                         damageParticle.Play();
-                         
+
                     enemyAudio.PlayOneShot(slimeSound, 1);
                     animator.SetTrigger("Attack");
                     animator.SetTrigger("Attack2");
                     animal.TakeDamage(damage);
-                    
+
                 }
 
                 lastAttackTime = Time.time;

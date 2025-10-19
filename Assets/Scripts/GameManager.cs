@@ -5,11 +5,11 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    
+
     public SpawnManagerAnimals spawnManager;   // Reference to your spawn script
     public Transform[] spawnPoints;            // Where animals can spawn
 
-    
+
     public TextMeshProUGUI rescuedText;
     public TextMeshProUGUI deadText;
     public GameObject gameOverPanel;
@@ -32,15 +32,15 @@ public class GameManager : MonoBehaviour
     private bool gameActive = false;
 
     // menu buttons med 3 funktioner
-    public void StartEasy()   { StartGame(5, 30f, false); }
+    public void StartEasy() { StartGame(5, 40f, false); }
     public void StartMedium() { StartGame(10, 60f, false); }
-    public void StartHard()   { StartGame(15, 80f, true); }
+    public void StartHard() { StartGame(15, 80f, true); }
 
     private void Start()
-{
-    
-    Time.timeScale = 0f;
-}
+    {
+
+        Time.timeScale = 0f;
+    }
 
     private void StartGame(int totalAnimals, float timeLimit, bool enableHardEnemy)
     {
@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour
         Timer.gameObject.SetActive(true);
         Time.timeScale = 1f;
 
-        
+
         spawnManager.SpawnAnimals(spawnPoints, 5f);
         timer.gameManager = this;
         timer.StartTimer(timeLimit);
@@ -70,11 +70,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void RestartGame(){
+    private void RestartGame()
+    {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-      public void TimeIsOver()
+    public void TimeIsOver()
     {
         GameOver("Time is up!");
     }
@@ -124,7 +125,7 @@ public class GameManager : MonoBehaviour
         gameActive = false;
         gameOverWinPanel.SetActive(true);
         Debug.Log(message);
-        Time.timeScale = 0f; 
+        Time.timeScale = 0f;
     }
 
     private void GameOver(string message)
@@ -132,6 +133,6 @@ public class GameManager : MonoBehaviour
         gameActive = false;
         gameOverPanel.SetActive(true);
         Debug.Log(message);
-        Time.timeScale = 0f; 
+        Time.timeScale = 0f;
     }
 }
