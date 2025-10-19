@@ -18,7 +18,7 @@ So game mechanic > UI for this time of project. But I did do some okay basic stu
 
 I think that's enough of yapping. I hope you enjoy the game :D.
 
-Ps. Parameter "Attack" or Parameter "Attack" does not exist, will show up if you play the game in Unity Unity. I know the issue but I had no time to fix it, but it wont affect the gameplay.
+Ps. Parameter "Attack" or Parameter "Attack2" does not exist, will show up if you play the game in Unity Unity. I know the issue but I had no time to fix it, but it wont affect the gameplay.
 
 # Pictures
 <img width="1865" height="842" alt="image" src="https://github.com/user-attachments/assets/b49d5d24-8ace-4274-88a2-3af5acb9b311" />
