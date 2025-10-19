@@ -1,12 +1,13 @@
 # Personal Project-Chuck
 
-Welcome to my game called "Animal Rescue"
+## Welcome to my game called "Animal Rescue"
 
 It's a game based of saving animals that spawns in a small area and you have to protect them from monsters like slimes that tries to eat them up.
 To save the animal the player has to capture the animals and bring them to a so called "Safe Zone" where they will be safe from the slimes!
 
 This game is inspired by games like Slime Rancher, but this time the slimes are the enemies! 
 
+# Devolopment
 The development of this game was honestly not so good from the developer(me) I had 5 days to complete the game but I only used like 3 days because of laziness (I will admit that), so I had to scratch some ideas to finish the game before deadline.
 
 I had ideas that the player was supposed to also kill the monsters by switch weapons but what I learned from the lessons is that we should focus on the very basic so is atleast playable and I also didnt have super much time.
@@ -16,3 +17,10 @@ This was much harder then I expected, I thought scripts like transform the enemy
 So game mechanic > UI for this time of project. But I did do some okay basic stuff to my UI with the extened deadline, so it's not utterly awful, I hope?
 
 I think that's enough of yapping. I hope you enjoy the game :D.
+
+# Pictures
+<img width="1865" height="842" alt="image" src="https://github.com/user-attachments/assets/b49d5d24-8ace-4274-88a2-3af5acb9b311" />
+The finished game
+
+<img width="1907" height="816" alt="image" src="https://github.com/user-attachments/assets/4031727c-240a-42d5-97cf-b5ce377c51ed" />
+The UI
