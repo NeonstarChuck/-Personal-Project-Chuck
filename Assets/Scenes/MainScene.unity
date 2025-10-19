@@ -3514,7 +3514,6 @@ GameObject:
   - component: {fileID: 348990184}
   - component: {fileID: 348990183}
   - component: {fileID: 348990187}
-  - component: {fileID: 348990188}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -3629,22 +3628,6 @@ MonoBehaviour:
   timerText: {fileID: 1233868661}
   remainingTime: 60
   gameManager: {fileID: 0}
---- !u!114 &348990188
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 348990182}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd92c0ca2f5f645d484063095cd066bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  filePrefix: session
-  logTransform: 0
-  target: {fileID: 1216878396}
-  sampleHz: 5
 --- !u!1001 &352101531
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8522,6 +8505,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 7695728874424586236, guid: 3195f315b3fac4c7ba17a504dad3a160, type: 3}
+        m_TargetAssemblyTypeName: CsvLogger, Assembly-CSharp
+        m_MethodName: StopLogger
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1050751455
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12205,7 +12200,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 7.7416077}
+  m_AnchoredPosition: {x: 0, y: 7.741577}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1569883829
@@ -15434,7 +15429,6 @@ GameObject:
   - component: {fileID: 2023610529}
   - component: {fileID: 2023610528}
   - component: {fileID: 2023610527}
-  - component: {fileID: 2023610530}
   m_Layer: 5
   m_Name: Easy
   m_TagString: Untagged
@@ -15518,18 +15512,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 2023610530}
-        m_TargetAssemblyTypeName: CsvLogger, Assembly-CSharp
-        m_MethodName: StartLogger
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &2023610528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15568,22 +15550,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2023610525}
   m_CullTransparentMesh: 1
---- !u!114 &2023610530
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2023610525}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd92c0ca2f5f645d484063095cd066bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  filePrefix: session
-  logTransform: 0
-  target: {fileID: 0}
-  sampleHz: 5
 --- !u!1001 &2023654873
 PrefabInstance:
   m_ObjectHideFlags: 0

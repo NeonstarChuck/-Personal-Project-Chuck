@@ -27,10 +27,7 @@ public class PauseManager : MonoBehaviour
             Debug.Log("Game Paused");
             pausePanel.SetActive(true);
             if (audioSource != null)
-                audioSource.Pause();
-           
-
-            
+                audioSource.Pause(); 
             
         }
         else

@@ -34,7 +34,7 @@ public class Timer : MonoBehaviour
         else
         {
             timerActive = false;
-            
+            //call NoTime function
             NoTime();
         }
 
@@ -49,6 +49,7 @@ public class Timer : MonoBehaviour
         timerActive = true;
     }
 
+    //NoTime function in the gamemanagar that check gameover.
     private void NoTime()
     {
         if (gameManager != null)

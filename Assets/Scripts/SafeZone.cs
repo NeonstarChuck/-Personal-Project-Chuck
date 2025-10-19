@@ -6,7 +6,7 @@ public class SafeZone : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        // Only act on animals
+        // Only objects with "Animal" tag
         if (other.CompareTag("Animal"))
         {
             if (gameManager != null)

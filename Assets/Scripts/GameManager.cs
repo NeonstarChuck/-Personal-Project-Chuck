@@ -31,14 +31,14 @@ public class GameManager : MonoBehaviour
 
     private bool gameActive = false;
 
-    // --- Call these from your menu buttons ---
+    // menu buttons med 3 funktioner
     public void StartEasy()   { StartGame(5, 30f, false); }
     public void StartMedium() { StartGame(10, 60f, false); }
     public void StartHard()   { StartGame(15, 80f, true); }
 
     private void Start()
 {
-    // Freeze everything
+    
     Time.timeScale = 0f;
 }
 
@@ -124,7 +124,7 @@ public class GameManager : MonoBehaviour
         gameActive = false;
         gameOverWinPanel.SetActive(true);
         Debug.Log(message);
-        Time.timeScale = 0f; // freeze the game
+        Time.timeScale = 0f; 
     }
 
     private void GameOver(string message)
@@ -132,6 +132,6 @@ public class GameManager : MonoBehaviour
         gameActive = false;
         gameOverPanel.SetActive(true);
         Debug.Log(message);
-        Time.timeScale = 0f; // freeze the game
+        Time.timeScale = 0f; 
     }
 }

@@ -48,7 +48,7 @@ public class NavigationScript : MonoBehaviour
             agent.destination = currentTarget.position;
     }
 
-    void FindClosestAnimal()
+    void FindClosestAnimal() //Finding objects with tag animal
     {
         GameObject[] animals = GameObject.FindGameObjectsWithTag(animalTag);
 
@@ -73,6 +73,7 @@ public class NavigationScript : MonoBehaviour
         {
             if (Time.time - lastAttackTime >= attackCooldown)
             {
+                //Get information form animal health script
                 AnimalHealth animal = collision.gameObject.GetComponent<AnimalHealth>();
                 if (animal != null)
                 {

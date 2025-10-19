@@ -7,12 +7,13 @@ public class SpawnManagerAnimals : MonoBehaviour
 
     public void SpawnAnimals(Transform[] spawnPoints, float spawnDelay = 1f)
     {
-        int totalAnimals = 20; // spawn exactly 20 animals
+        int totalAnimals = 20; // spawn excatly 20 animals.
         StartCoroutine(SpawnAnimalsCoroutine(totalAnimals, spawnPoints, spawnDelay));
     }
 
 
     private IEnumerator SpawnAnimalsCoroutine(int count, Transform[] spawnPoints, float spawnDelay)
+    // Couritne for which spawnpoin to spawn in, which animal in the arrya and the delay for spawning.
     {
         for (int i = 0; i < count; i++)
         {
