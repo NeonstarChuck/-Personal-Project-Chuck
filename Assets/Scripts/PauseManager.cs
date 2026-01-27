@@ -1,7 +1,9 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PauseManager : MonoBehaviour
 {
+    public InputActionReference inputActionReference;
     private bool isPaused = false;
     public GameObject pausePanel;
     public AudioSource audioSource;
@@ -10,7 +12,7 @@ public class PauseManager : MonoBehaviour
     void Update()
     {
         // Press Escape to toggle pause
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (inputActionReference.action.WasPerformedThisFrame())
         {
             TogglePause();
         }

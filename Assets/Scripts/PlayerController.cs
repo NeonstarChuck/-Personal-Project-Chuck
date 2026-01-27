@@ -1,7 +1,9 @@
 using UnityEngine;
-
+using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
+    public InputActionReference shootAction;
+    public InputActionReference moveAction;
     public float horizontalInput;
     public float verticalInput;
     public float speed = 10.0f;
@@ -15,13 +17,8 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        // --- Movement ---
-        horizontalInput = Input.GetAxis("Horizontal");
-        CsvLogger.LogEvent("Player", "Moves Down or Up");
-        verticalInput = Input.GetAxis("Vertical");
-        CsvLogger.LogEvent("Player", "Move Left or Right");
-
-        Vector3 moveDirection = new Vector3(horizontalInput, 0, verticalInput).normalized;
+        Vector2 input = moveAction.action.ReadValue<Vector2>();
+        Vector3 moveDirection = new Vector3(input.x, 0, input.y).normalized;
 
         if (moveDirection.magnitude >= 0.1f)
         {
@@ -38,7 +35,7 @@ public class PlayerController : MonoBehaviour
         float clampedZ = Mathf.Clamp(transform.position.z, -zMin, zMax);
         transform.position = new Vector3(clampedX, transform.position.y, clampedZ);
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (shootAction.action.WasPerformedThisFrame())
         {
             Instantiate(
                 projectilePrefab,
