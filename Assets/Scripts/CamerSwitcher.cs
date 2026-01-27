@@ -1,27 +1,32 @@
 using UnityEngine;
 
-public class CamerSwitcher : MonoBehaviour
+public class CameraSwitcher : MonoBehaviour
 {
     public Camera mainCamera;
     public Camera hoodCamera;
+    public PlayerMovement playerMovement;
+
     public KeyCode switchKey = KeyCode.F;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
     void Start()
     {
+        mainCamera.enabled = true;
+        hoodCamera.enabled = false;
 
+        playerMovement.activeCamera = mainCamera;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(switchKey))
         {
+            bool fpsActive = !hoodCamera.enabled;
 
-            mainCamera.enabled = !mainCamera.enabled;
-            hoodCamera.enabled = !hoodCamera.enabled;
+            mainCamera.enabled = !fpsActive;
+            hoodCamera.enabled = fpsActive;
 
-            //If !main or !hood is not enabled, then enable the following camera.
+            // Update player movement camera reference
+            playerMovement.activeCamera = fpsActive ? hoodCamera : mainCamera;
         }
-
     }
 }

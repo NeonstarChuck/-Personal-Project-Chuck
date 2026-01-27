@@ -17,9 +17,9 @@ public class PlayerController : MonoBehaviour
     {
         // --- Movement ---
         horizontalInput = Input.GetAxis("Horizontal");
-        CsvLogger.LogEvent("Player","Moves Down or Up");
+        CsvLogger.LogEvent("Player", "Moves Down or Up");
         verticalInput = Input.GetAxis("Vertical");
-        CsvLogger.LogEvent("Player","Move Left or Right");
+        CsvLogger.LogEvent("Player", "Move Left or Right");
 
         Vector3 moveDirection = new Vector3(horizontalInput, 0, verticalInput).normalized;
 
@@ -38,11 +38,16 @@ public class PlayerController : MonoBehaviour
         float clampedZ = Mathf.Clamp(transform.position.z, -zMin, zMax);
         transform.position = new Vector3(clampedX, transform.position.y, clampedZ);
 
-        // --- Shoot projectile ---
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Instantiate(projectilePrefab, projectileSpawnPoint.position, projectilePrefab.transform.rotation);
-            CsvLogger.LogEvent("Player","Shoot");
+            Instantiate(
+                projectilePrefab,
+                projectileSpawnPoint.position,
+                projectileSpawnPoint.rotation
+            );
+
+            CsvLogger.LogEvent("Player", "Shoot");
         }
+
     }
 }

@@ -1,22 +1,32 @@
 using UnityEngine;
 
-public class FollowPlayer : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
-    public GameObject player;
-    private Vector3 offset;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public float speed = 5f;
+
+    // Assign the current camera controlling movement
+    public Camera activeCamera;
+    public Camera mainCamera; // third-person
+    public Camera hoodCamera; // FPS
+
+    void Update()
     {
-        //Because player its not at 0,0,0, we have to calculate the offset instead.
-        offset = transform.position - player.transform.position;
-    }
+        float h = Input.GetAxis("Horizontal");
+        float v = Input.GetAxis("Vertical");
 
-    // Update is called once per frame
-    void LateUpdate()
-    {
-        //Offset the camera behind the player by adding to the player's position
-        transform.position = player.transform.position + offset;
+        Vector3 move = Vector3.zero;
 
+        if (activeCamera == hoodCamera)
+        {
+            // First-person: movement relative to player's forward
+            move = transform.forward * v + transform.right * h;
+        }
+        else
+        {
+            // Third-person: movement relative to world axes
+            move = new Vector3(h, 0, v);
+        }
 
+        transform.position += move * speed * Time.deltaTime;
     }
 }
